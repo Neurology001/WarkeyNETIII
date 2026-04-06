@@ -88,6 +88,3 @@ Dota1Warkey/
 
 - 原始项目：[https://github.com/noobhacker/WarkeyNETIII](https://github.com/noobhacker/WarkeyNETIII)
 
-## 许可证
-
-MIT
