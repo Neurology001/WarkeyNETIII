@@ -62,13 +62,6 @@ Dota1Warkey/
 - .NET Framework 4.8（大多数 Windows 系统已预装）
   - 如果运行提示缺少框架，可以从微软官网下载安装：<https://dotnet.microsoft.com/download/dotnet-framework/net48>
 
-## 下载发布版
-
-在 `publish-fd` 或 `publish-small` 目录中已包含预编译版本：
-
-- **publish-fd/**：框架依赖版，体积较小（约 200KB），需要系统已安装 .NET Framework 4.8
-- **publish-small/**：单文件版，包含必要运行时组件，体积较大（约 28MB），可直接运行
-
 ## 构建项目
 
 ### 需求
