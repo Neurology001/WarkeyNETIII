@@ -1,0 +1,104 @@
+<Page x:Class="Dota1Warkey.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Background="{StaticResource AppBg}"
+      Title="Settings">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="24,20">
+
+            <!-- Section title -->
+            <TextBlock Text="通用"
+                       Foreground="{StaticResource TextSecondary}"
+                       FontSize="11"
+                       FontFamily="Segoe UI Variable Text, Segoe UI"
+                       FontWeight="SemiBold"
+                       Margin="4,0,0,8"
+                       TextElement.FontSize="11"/>
+
+            <!-- Settings card -->
+            <Border Background="{StaticResource CardBg}"
+                    CornerRadius="10"
+                    Padding="16,4">
+
+                <StackPanel>
+
+                    <!-- Row: 开机最小化 -->
+                    <Grid Height="48">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="启动时最小化"
+                                       Foreground="{StaticResource TextPrimary}"
+                                       FontSize="13"
+                                       FontFamily="Segoe UI Variable Text, Segoe UI"/>
+                            <TextBlock Text="启动后自动最小化到任务栏"
+                                       Foreground="{StaticResource TextSecondary}"
+                                       FontSize="11"
+                                       FontFamily="Segoe UI Variable Text, Segoe UI"
+                                       Margin="0,1,0,0"/>
+                        </StackPanel>
+                        <CheckBox Grid.Column="1"
+                                  Style="{StaticResource AppleCheckBox}"
+                                  IsChecked="{Binding IsStartMinimized}"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{StaticResource Separator}" Margin="-16,0"/>
+
+                    <!-- Row: 随 War3 启动 -->
+                    <Grid Height="48">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="自动启动 Warcraft III"
+                                       Foreground="{StaticResource TextPrimary}"
+                                       FontSize="13"
+                                       FontFamily="Segoe UI Variable Text, Segoe UI"/>
+                            <TextBlock Text="程序启动时自动运行同目录的 war3.exe"
+                                       Foreground="{StaticResource TextSecondary}"
+                                       FontSize="11"
+                                       FontFamily="Segoe UI Variable Text, Segoe UI"
+                                       Margin="0,1,0,0"/>
+                        </StackPanel>
+                        <CheckBox Grid.Column="1"
+                                  Style="{StaticResource AppleCheckBox}"
+                                  IsChecked="{Binding IsAutoStartWar3}"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <Rectangle Height="1" Fill="{StaticResource Separator}" Margin="-16,0"/>
+
+                    <!-- Row: 随 War3 关闭 -->
+                    <Grid Height="48">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <TextBlock Text="随 Warcraft III 一起关闭"
+                                       Foreground="{StaticResource TextPrimary}"
+                                       FontSize="13"
+                                       FontFamily="Segoe UI Variable Text, Segoe UI"/>
+                            <TextBlock Text="检测到 War3 退出后自动关闭本程序"
+                                       Foreground="{StaticResource TextSecondary}"
+                                       FontSize="11"
+                                       FontFamily="Segoe UI Variable Text, Segoe UI"
+                                       Margin="0,1,0,0"/>
+                        </StackPanel>
+                        <CheckBox Grid.Column="1"
+                                  Style="{StaticResource AppleCheckBox}"
+                                  IsChecked="{Binding IsAutoCloseWithWar3}"
+                                  VerticalAlignment="Center"/>
+                    </Grid>
+
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

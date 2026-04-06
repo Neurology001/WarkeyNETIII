@@ -1,0 +1,134 @@
+<Application x:Class="Dota1Warkey.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <!-- ── Colors ── -->
+        <Color x:Key="AppBgColor">#FF1C1C1E</Color>
+        <Color x:Key="SidebarBgColor">#FF2C2C2E</Color>
+        <Color x:Key="CardBgColor">#FF3A3A3C</Color>
+        <Color x:Key="AccentColor">#FF0A84FF</Color>
+        <Color x:Key="TextPrimaryColor">#FFF2F2F7</Color>
+        <Color x:Key="TextSecondaryColor">#FF8E8E93</Color>
+        <Color x:Key="SeparatorColor">#FF48484A</Color>
+
+        <SolidColorBrush x:Key="AppBg"       Color="{StaticResource AppBgColor}"/>
+        <SolidColorBrush x:Key="SidebarBg"   Color="{StaticResource SidebarBgColor}"/>
+        <SolidColorBrush x:Key="CardBg"      Color="{StaticResource CardBgColor}"/>
+        <SolidColorBrush x:Key="Accent"      Color="{StaticResource AccentColor}"/>
+        <SolidColorBrush x:Key="TextPrimary" Color="{StaticResource TextPrimaryColor}"/>
+        <SolidColorBrush x:Key="TextSecondary" Color="{StaticResource TextSecondaryColor}"/>
+        <SolidColorBrush x:Key="Separator"   Color="{StaticResource SeparatorColor}"/>
+
+        <!-- ── Slot TextBox: transparent input capture layer ── -->
+        <Style x:Key="SlotTextBox" TargetType="TextBox">
+            <Setter Property="Background"                Value="Transparent"/>
+            <Setter Property="BorderThickness"           Value="0"/>
+            <Setter Property="Foreground"                Value="{StaticResource TextPrimary}"/>
+            <Setter Property="FontSize"                  Value="22"/>
+            <Setter Property="FontWeight"                Value="SemiBold"/>
+            <Setter Property="FontFamily"                Value="Segoe UI Variable Display, Segoe UI"/>
+            <Setter Property="IsReadOnly"                Value="True"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment"  Value="Center"/>
+            <Setter Property="TextAlignment"             Value="Center"/>
+            <Setter Property="Cursor"                    Value="Hand"/>
+            <Setter Property="CaretBrush"                Value="Transparent"/>
+            <Setter Property="FocusVisualStyle"          Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost"
+                                          VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ── Sidebar nav button ── -->
+        <Style x:Key="NavButton" TargetType="Button">
+            <Setter Property="Background"             Value="Transparent"/>
+            <Setter Property="Foreground"             Value="{StaticResource TextSecondary}"/>
+            <Setter Property="BorderThickness"        Value="0"/>
+            <Setter Property="Padding"                Value="12,9"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="FontSize"               Value="13"/>
+            <Setter Property="FontFamily"             Value="Segoe UI Variable Text, Segoe UI"/>
+            <Setter Property="Cursor"                 Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Bg"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="7"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Bg" Property="Background" Value="#22FFFFFF"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Bg" Property="Background" Value="#33FFFFFF"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <!-- Active state applied via code-behind -->
+        </Style>
+
+        <!-- ── macOS-style CheckBox ── -->
+        <Style x:Key="AppleCheckBox" TargetType="CheckBox">
+            <Setter Property="Foreground"  Value="{StaticResource TextPrimary}"/>
+            <Setter Property="FontSize"    Value="13"/>
+            <Setter Property="FontFamily"  Value="Segoe UI Variable Text, Segoe UI"/>
+            <Setter Property="Cursor"      Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="CheckBox">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <!-- Toggle track -->
+                            <Border x:Name="Track"
+                                    Width="36" Height="20"
+                                    CornerRadius="10"
+                                    Background="{StaticResource Separator}">
+                                <!-- Toggle thumb -->
+                                <Border x:Name="Thumb"
+                                        Width="16" Height="16"
+                                        CornerRadius="8"
+                                        Background="White"
+                                        Margin="2,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="1" BlurRadius="3"
+                                                          Opacity="0.4" Direction="270"/>
+                                    </Border.Effect>
+                                </Border>
+                            </Border>
+                            <ContentPresenter Margin="10,0,0,0"
+                                              VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="Track" Property="Background"
+                                        Value="{StaticResource Accent}"/>
+                                <Setter TargetName="Thumb" Property="HorizontalAlignment"
+                                        Value="Right"/>
+                                <Setter TargetName="Thumb" Property="Margin"
+                                        Value="0,0,2,0"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Application.Resources>
+</Application>

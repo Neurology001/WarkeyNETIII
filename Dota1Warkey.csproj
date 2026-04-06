@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Dota1Warkey</AssemblyName>
+    <RootNamespace>Dota1Warkey</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.4"/>
+    <PackageReference Include="Fody" Version="6.8.2" PrivateAssets="all"/>
+    <PackageReference Include="Costura.Fody" Version="5.7.0" PrivateAssets="all"/>
+  </ItemGroup>
+
+</Project>
